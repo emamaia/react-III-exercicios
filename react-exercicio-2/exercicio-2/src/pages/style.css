@@ -1,0 +1,24 @@
+
+.cadastro{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.resultado{
+    display: flex;
+}
+
+.input{
+    height: 40px;
+}
+
+.btn-remover{
+    margin-left: 5px;
+}
+
+.btn-cadastrar{
+ background-color: rgb(100, 76, 122);
+ color: cornsilk;
+ height: 40px;
+}

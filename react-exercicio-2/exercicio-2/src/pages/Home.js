@@ -17,7 +17,7 @@ class Home extends React.Component {
 
     onChangeInput = (element) => {
         let value = element.target.value
-        this.setState({ value: value })
+        this.setState({ value: value })             
     }
 
     onClickButton = () => {
@@ -31,9 +31,12 @@ class Home extends React.Component {
     }
 
     excluirNome=(item)=>{
-      let novoNomes= this.state.nomes.filter(nome=>(
-          nome !== item
-      ))  
+        let novoArray = this.state.nomes.filter(nome => (
+            nome !== item
+        ));
+            this.setState({
+                nomes: novoArray
+            })
     }
 
     render() {
@@ -46,23 +49,26 @@ class Home extends React.Component {
                     type='text'
                     placeholder='Digite seu nome'
                     change={this.onChangeInput}
+                    
+                    
                 />
-                <Button
-                    classe='btn-cadastrar'
-                    clique={this.onClickButton}
-                >
-                    Cadastrar
+                <Button  
+                classe='btn-cadastrar'
+                clique={this.onClickButton}
+                > 
+                Cadastrar
                 </Button>
+                                   
                     
                 </div>
                 <ul>
-                    {this.state.nomes.map((valor, index) => {
+                    {this.state.nomes.map((item, index) => {
                         return (
                             <div className='resultado' key={index}>
-                                <li>{valor}</li>
+                                <li>{item}</li>
                                 <Button
                                     classe='btn-remover'
-                                    clique={()=>this.excluirNome(valor)}
+                                    clique={()=>this.excluirNome(item)}
                                 > X
                                 </Button>
                             </div>

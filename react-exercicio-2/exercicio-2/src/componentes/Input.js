@@ -6,6 +6,8 @@ return(
      className='input'
       onChange={props.change}
       placeholder={props.placeholder}
+
+    
       >
 
       </input>

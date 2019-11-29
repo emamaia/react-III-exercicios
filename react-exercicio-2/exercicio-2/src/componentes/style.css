@@ -7,9 +7,12 @@
     border-style: solid;
    border-color: #000000;
    font-size: 14px;
+   margin-top: 50px;
+  font-weight: bold;
 }
 
 .img-card{
+    margin: 10px;
     width: 70%;
     height: 60%;
 }

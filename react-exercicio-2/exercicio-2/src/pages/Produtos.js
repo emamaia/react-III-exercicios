@@ -1,74 +1,76 @@
 import React from 'react'
 import Card from '../componentes/Card'
+import Button from '../componentes/Button'
+import Input from '../componentes/Input'
+import listaProdutos from '../mock/listaProdutos'
+
+import './style.css'
 
 
+class Produtos extends React.Component {
 
-const produtos = [
-    {
-        id:1,
-        title: 'Celular muito caro',
-        img: 'https://images-submarino.b2w.io/produtos/01/00/img7/01/00/item/134219/1/134219163SZ.jpg',
-        price: 'Preço: seu rim'
-    },
-
-    {
-        id:2,
-        title: 'Celular muito mais caro ainda',
-        img:'https://images-submarino.b2w.io/produtos/01/00/img7/01/00/item/134219/1/134219163SZ.jpg',
-        price: 'Preço: seu fígado'
-    },
-
-    {
-        id:3,
-        title: 'Celular pra olhar',
-        img:'https://images-submarino.b2w.io/produtos/01/00/img7/01/00/item/134219/1/134219163SZ.jpg',
-        price: 'Preço: seu estômago'
-    },
-
-    {
-        id:4,
-        title: 'Celular pra desejar',
-        img:'https://images-submarino.b2w.io/produtos/01/00/img7/01/00/item/134219/1/134219163SZ.jpg',
-        price: 'Preço: sua córnea'
-    },
-
-    {
-        id:5,
-        title: 'Celular pra burguês',
-        img:'https://images-submarino.b2w.io/produtos/01/00/img7/01/00/item/134219/1/134219163SZ.jpg',
-        price: 'Preço: corpo nu'
-    },
-
-    {
-        id:6,
-        title: 'Celular loucura de caro',
-        img:'https://images-submarino.b2w.io/produtos/01/00/img7/01/00/item/134219/1/134219163SZ.jpg',
-        price: 'Preço: seu baço'
+    constructor(props) {
+        super(props)
+        this.state = {
+            value: "",
+            produtos: listaProdutos
+        }
     }
 
+    valorInput = (valor) => {
+        let valorInput = valor.target.value;
+        this.setState({
+            value: valorInput
+        })
+    }
 
-]
+    pesquisaProduto = () => {
+        let novoArray = this.state.produtos.filter(item => item.title.includes(this.state.value))
+        this.setState({
+            produtos: novoArray
+        })
+    }
 
-function Produtos(props){
-    return(
-        <div>
-            {produtos.map(item=>(
-                
-            <Card key={item.id}
-                img={item.img}
-                title={item.title}
-                price={item.price}
+    render() {
+        return (
+            <section>
 
-            />
-                
-            ))
-                }
-           
-        </div>
-    )
+                <div className='pesquisar'>
+                    <Input
+
+                        type='text'
+                        placeholder='Pesquise seu produto'
+                        change={this.valorInput}
+                    />
+
+                    <Button
+
+                        clique={this.pesquisaProduto}
+
+                    >
+                        Pesquisar
+                </Button>
+
+                </div>
+
+                <div className='produtos'>
+
+                    {this.state.produtos.map(item => (
+
+                        <Card key={item.id}
+                            img={item.img}
+                            title={item.title}
+                            price={item.price}
+
+                        />
+                    ))
+                    }
+
+                </div>
+
+            </section>
+        )
+    }
 }
-
-
-
 
 export default Produtos

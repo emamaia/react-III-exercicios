@@ -5,10 +5,8 @@ return(
     <input type={props.type}
      className='input'
       onChange={props.change}
-      placeholder={props.placeholder}
-
-    
-      >
+      placeholder={props.placeholder}    
+    >
 
       </input>
 )

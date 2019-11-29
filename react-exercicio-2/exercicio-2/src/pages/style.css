@@ -12,6 +12,7 @@
 .input{
     height: 40px;
     width: 300px;
+    margin-top: 20px;
 }
 
 .btn-remover{
@@ -43,3 +44,30 @@
 .label{
     margin-right: 20px;
 }
+
+.produtos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pesquisar{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+.paginaGit{
+    
+        width: 400px;
+        height: 200px;
+        margin:  0 auto;
+        text-align: center;
+        border-width:2px;
+        border-style: solid;
+        border-color: #000000;       
+        margin-top: 50px;
+       font-weight: bold;
+     
+}
+
